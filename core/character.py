@@ -1,6 +1,7 @@
 import os
 import pygame
 from . import sprite
+from . import songs
 
 
 class Character:
@@ -17,7 +18,8 @@ class Character:
             'shirt': None,
             }
         self.spritesheet = sprite.Sprite('core/sprites/character.png')
-        self.inventory = []
+        self.inventory = {}
+        self.tapes = [songs.MiamiDreams()]
         # here is money
         self.wallet = 0
         self.current_animation = "idle"
@@ -47,5 +49,8 @@ class Character:
 
     def idle(self):
         self.current_animation = "idle"
+
+    def get_tapes(self):
+        return self.tapes
 
 
